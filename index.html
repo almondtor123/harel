@@ -3,6 +3,25 @@
 <head>
   <title>Random Phrase Display</title>
   <style>
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    .toolbar button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
     .phrase {
       position: absolute;
       font-size: 36px;
@@ -16,6 +35,10 @@
   </style>
 </head>
 <body>
+  <div class="toolbar">
+    <button onclick="goToRomi()">Romi</button>
+  </div>
+
   <script>
     function displayRandomPhrase() {
       var phrases = [
@@ -57,7 +80,11 @@
       document.body.appendChild(imageContainer);
     }
 
-    setInterval(displayRandomPhrase, 1000);
+    function goToRomi() {
+      window.location.href = "romi.html";
+    }
+
+    setInterval(displayRandomPhrase, 100);
   </script>
 </body>
 </html>
