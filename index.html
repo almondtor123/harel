@@ -8,6 +8,11 @@
       font-size: 24px;
       font-family: Arial, sans-serif;
     }
+    .image {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
   </style>
 </head>
 <body>
@@ -20,19 +25,35 @@
         "רומי מעצבנת אותי בכל פעם"
       ];
 
+      var images = [
+        "mika1.png",
+        "mika2.png",
+        "mika3.png",
+        "mika4.png",
+        "mika5.png"
+      ];
+
       var phraseContainer = document.createElement("div");
       phraseContainer.className = "phrase";
       var randomIndex = Math.floor(Math.random() * phrases.length);
       phraseContainer.textContent = phrases[randomIndex];
 
+      var imageContainer = document.createElement("img");
+      imageContainer.className = "image";
+      var randomImageIndex = Math.floor(Math.random() * images.length);
+      imageContainer.src = images[randomImageIndex];
+
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var positionLeft = Math.random() * (windowWidth - 200); // Adjust the 200 value to control the width of the phrase container
-      var positionTop = Math.random() * (windowHeight - 50); // Adjust the 50 value to control the height of the phrase container
+      var positionTop = Math.random() * (windowHeight - 200); // Adjust the 200 value to control the height of the phrase container
       phraseContainer.style.left = positionLeft + "px";
       phraseContainer.style.top = positionTop + "px";
+      imageContainer.style.left = (positionLeft + 50) + "px"; // Adjust position based on the image size
+      imageContainer.style.top = (positionTop + 30) + "px"; // Adjust position based on the image size
 
       document.body.appendChild(phraseContainer);
+      document.body.appendChild(imageContainer);
     }
 
     setInterval(displayRandomPhrase, 4000);
